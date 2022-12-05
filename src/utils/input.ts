@@ -1,5 +1,6 @@
 import { to } from 'await-to-js';
-import { ungzip } from 'node-gzip';
+import { gunzip } from 'zlib';
+import util from 'util';
 import { readFileSync, readdirSync } from 'fs';
 import { Input, Output, Url } from '@/types';
 import { isValidURL, parseQueryParams } from '@/utils/url';
@@ -14,7 +15,7 @@ import { URL } from 'url';
  */
 export const unzipFile = async (path: string): Promise<Input> => {
   const compressed: Buffer = readFileSync(path);
-  const [err, file] = await to(ungzip(compressed));
+  const [err, file] = await to(util.promisify(gunzip)(compressed));
   if (err) {
     throw new Error(`Unable to un-compress file: ${err}`);
   }
@@ -28,13 +29,9 @@ export const unzipFile = async (path: string): Promise<Input> => {
  * @param path Folder path string
  * @return List of input JSONs
  */
-export const readInputsFromFolder = async (
-  path: string
-): Promise<Array<Input>> => {
+export const readInputsFromFolder = async (path: string): Promise<Array<Input>> => {
   const file = readdirSync(path);
-  const [err, inputs] = await to(
-    Promise.all(file.map((filePath) => unzipFile(`${path}/${filePath}`)))
-  );
+  const [err, inputs] = await to(Promise.all(file.map((filePath) => unzipFile(`${path}/${filePath}`))));
   if (err) {
     throw new Error(`Unable to unzip file(s) from folder: ${err}`);
   }
