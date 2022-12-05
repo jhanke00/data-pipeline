@@ -15,11 +15,11 @@
     "baseUrl": ".",
     "outDir": "./dist",
     "paths": {
-      "@/*": ["*"],
-      "@data/*": ["data/*"],
+      "@/*": ["src/*"],
       "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["**/*"],
+  "compileOnSave": true,
+  "include": ["./src/**/*", "./tests/**/*"],
   "exclude": ["node_modules"]
 }

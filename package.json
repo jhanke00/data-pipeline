@@ -8,6 +8,7 @@
     "build": "tsc",
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts",
+    "prepare": "husky install",
     "start": "ts-node src",
     "test": "jest"
   },
@@ -17,6 +18,7 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.29.0",
+    "husky": "^8.0.2",
     "jest": "^29.3.1",
     "prettier": "^2.8.0",
     "ts-jest": "^29.0.3",
@@ -32,6 +34,8 @@
   },
   "homepage": "https://github.com/jhanke00/data-pipeline#readme",
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "await-to-js": "^3.0.0",
+    "dotenv": "^16.0.3",
+    "mongodb": "^4.12.1"
   }
 }
