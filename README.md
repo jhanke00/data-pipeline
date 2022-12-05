@@ -2,6 +2,8 @@
 
 Local server to upload data in compressed files, transform the JSON objects, and publish them to MongoDB.
 
+> NOTE: This will upload the same number of files, making sure to clear out the database before uploading again. The database should contain the same number of documents that has been uploaded.
+
 ## Setup
 
 You should have Node version 16 installed in order to run this server properly.

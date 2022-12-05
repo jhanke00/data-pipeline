@@ -20,10 +20,10 @@ export const run = async (client: MongoClient) => {
 
     const folderPath = path.resolve(process.cwd(), 'data');
     const inputs = await readInputsFromFolder(folderPath);
+    console.log(`Successfully read ${inputs.length} inputs.`);
 
     const data = inputs.flatMap(transformInput);
     const numDocs = await uploadData(collection, data);
-
     console.log(`Successfully uploaded ${numDocs} document(s)!`);
   } catch (err) {
     console.error(err);

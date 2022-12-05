@@ -22,16 +22,21 @@ export const connectToClient = async (client: MongoClient) => {
 
 /**
  *
- * Uploads a list of transformed output to MongoDB
+ * Uploads a list of transformed output to MongoDB and removes existing entries in collection
  *
- * @param collection MongoDB collection
- * @param data Array<Output>
+ * @param collection MongoDB collection to upload data
+ * @param data list of outputs to be uploaded
  * @return number of documents inserted
  */
 export const uploadData = async (collection: Collection<Output>, data: Array<Output>) => {
-  const [err, result] = await to(collection.insertMany(data));
-  if (err) {
-    throw new Error(`Failed to insert data: ${err}`);
+  const [deleteErr] = await to(collection.deleteMany({}));
+  if (deleteErr) {
+    throw new Error(`Failed to delete data: ${deleteErr}`);
+  }
+  
+  const [insertErr, result] = await to(collection.insertMany(data));
+  if (insertErr) {
+    throw new Error(`Failed to insert data: ${insertErr}`);
   }
 
   return result.insertedCount;

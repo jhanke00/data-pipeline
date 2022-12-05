@@ -69,7 +69,18 @@ describe('uploadData()', () => {
     expect(result).toEqual(3);
   });
 
-  it('throws an error if there is something wrong with the data', async () => {
+  it('throws an error if there is something wrong with deleting data from collection', async () => {
+    const collection = db.collection<Output>('outputs');
+    collection.deleteMany = jest.fn().mockRejectedValue(new Error('Error'));
+
+    const [err, result] = await to(uploadData(collection, mockData));
+
+    expect(result).toBe(undefined);
+    expect(err).toBeInstanceOf(Error);
+    expect(err?.message).toContain('Failed to delete data');
+  });
+
+  it('throws an error if there is something wrong with inserting the data', async () => {
     const collection = db.collection<Output>('outputs');
     collection.insertMany = jest.fn().mockRejectedValue(new Error('Error'));
 
