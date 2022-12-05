@@ -33,7 +33,7 @@ export const uploadData = async (collection: Collection<Output>, data: Array<Out
   if (deleteErr) {
     throw new Error(`Failed to delete data: ${deleteErr}`);
   }
-  
+
   const [insertErr, result] = await to(collection.insertMany(data));
   if (insertErr) {
     throw new Error(`Failed to insert data: ${insertErr}`);
