@@ -11,6 +11,7 @@ npm install
 ```
 
 You will need to set your `.env` file with the appropriate environment variables. You can copy the `.env.example` file, which will give you the following:
+
 ```
 MONGODB_USERNAME=""    // MongoDB user name
 MONGODB_PASSWORD=""    // MongoDB user password
@@ -18,6 +19,7 @@ MONGODB_HOST=""        // MongoDB host url
 ```
 
 This makes up the following URI to connect to MongoDB
+
 ```
 mongodb+srv://<MONGODB_USERNAME>:<MONGODB_PASSWORD>@<MONGODB_HOST>/?retryWrites=true&w=majority
 Ex: mongodb+srv://user:password@instance.mongodb.net/?retryWrites=true&w=majority
