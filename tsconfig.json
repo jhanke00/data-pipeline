@@ -15,8 +15,7 @@
     "baseUrl": ".",
     "outDir": "./dist",
     "paths": {
-      "@/*": ["src/*"],
-      "@utils/*": ["src/utils/*"]
+      "@/*": ["./src/*"]
     }
   },
   "compileOnSave": true,

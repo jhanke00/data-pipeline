@@ -41,11 +41,3 @@ To run linter with ESLint:
 ```sh
 npm run lint
 ```
-
-## Build
-
-To build the project with TSC:
-
-```sh
-npm run build
-```

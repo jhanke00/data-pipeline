@@ -1,0 +1,53 @@
+[
+  {
+    "ts": 1669976028340,
+    "u": {
+      "d": "www.example.org",
+      "p": "/ho/ez",
+      "q": {},
+      "h": "#w;#n?r?h"
+    },
+    "ec": {
+      "et": "dl",
+      "n": "digitalData",
+      "u": {
+        "page_name": "store",
+        "store_id": 153
+      }
+    }
+  },
+  {
+    "ts": 1669976029630,
+    "u": {
+      "d": "www.imaginary.co.uk",
+      "p": "/cfgrg/gxzhb",
+      "q": {},
+      "h": ""
+    },
+    "ec": {
+      "et": "j",
+      "er": {
+        "m": "general error",
+        "s": "call stack",
+        "l": 35
+      }
+    }
+  },
+  {
+    "ts": 1669976029630,
+    "u": {
+      "d": "www.imaginary.co.uk",
+      "p": "/cfgrg/gxzhb",
+      "q": {},
+      "h": ""
+    },
+    "ec": {
+      "et": "j",
+      "er": {
+        "m": "random error",
+        "s": "call stack",
+        "l": 18
+      }
+    }
+  }
+]

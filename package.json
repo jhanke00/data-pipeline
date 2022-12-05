@@ -5,16 +5,24 @@
   "author": "Jeffrey Hanke",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "tsc",
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts",
     "prepare": "husky install",
     "start": "ts-node src",
     "test": "jest"
   },
+  "dependencies": {
+    "await-to-js": "^3.0.0",
+    "dotenv": "^16.0.3",
+    "module-alias": "^2.2.2",
+    "mongodb": "^4.12.1",
+    "node-gzip": "^1.1.2"
+  },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^4.1.4",
     "@types/jest": "^29.2.3",
     "@types/node": "^18.11.10",
+    "@types/node-gzip": "^1.1.0",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.29.0",
@@ -25,6 +33,9 @@
     "ts-node": "^10.9.1",
     "typescript": "^4.9.3"
   },
+  "_moduleAliases": {
+    "@": "src"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jhanke00/data-pipeline.git"
@@ -32,10 +43,5 @@
   "bugs": {
     "url": "https://github.com/jhanke00/data-pipeline/issues"
   },
-  "homepage": "https://github.com/jhanke00/data-pipeline#readme",
-  "dependencies": {
-    "await-to-js": "^3.0.0",
-    "dotenv": "^16.0.3",
-    "mongodb": "^4.12.1"
-  }
+  "homepage": "https://github.com/jhanke00/data-pipeline#readme"
 }

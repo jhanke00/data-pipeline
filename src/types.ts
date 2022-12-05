@@ -4,15 +4,19 @@ export type Input = {
   e: Array<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
+export type QueryParams = {
+  [key: string]: string;
+};
+
+export type Url = {
+  d: string;
+  p: string;
+  q: QueryParams;
+  h: string;
+};
+
 export type Output = {
   ts: number;
-  u: {
-    d: string;
-    p: string;
-    q: {
-      [key: string]: string;
-    };
-    h: string;
-  };
+  u: Url;
   ec: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
